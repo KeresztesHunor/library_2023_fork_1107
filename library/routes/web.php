@@ -50,6 +50,8 @@ Route::middleware('auth.basic')->group(function () {
     Route::get('/with/copy_book_lending', [CopyController::class, 'copyBookLending']);
 });
 
+Route::apiResource('/api/books', BookController::class);
+
 //bejelentkezés nélkül is hozzáférhet
 Route::patch('/api/user_password/{id}', [UserController::class, 'updatePassword']);
 Route::delete('/api/lendings/{user_id}/{copy_id}/{start}', [LendingController::class, 'destroy']);
